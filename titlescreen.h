@@ -10,7 +10,6 @@
 #include "hangmanwidget.h"
 #include "optionswidget.h"
 #include "wordlibrarywidget.h"
-#include "blitz.h"
 
 namespace Ui {
 class TitleScreen;

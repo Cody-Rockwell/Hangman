@@ -10,17 +10,15 @@ TitleScreen::TitleScreen(QWidget *parent) :
     ui->setupUi(this);
 
     path.setCurrent(QDir::homePath());
-    path.cd(".QTProjects\\School\\CIS-224 C++\\Assignment_11\\res");
+    path.cd(".QTProjects/Portpholio/Hangman/res");
 
     hangmanWidget* Hangman = new hangmanWidget;
     OptionsWidget* Options = new OptionsWidget;
     WordLibraryWidget* WordLibrary = new WordLibraryWidget;
-    blitz* blitzmode = new blitz;
 
     ui->stackedWidget->insertWidget(1, WordLibrary);
     ui->stackedWidget->insertWidget(2, Options);
     ui->stackedWidget->insertWidget(3, Hangman);
-    ui->stackedWidget->insertWidget(4, blitzmode);
 
     getHighScoreList();
     updateHighScores();
@@ -45,9 +43,6 @@ TitleScreen::TitleScreen(QWidget *parent) :
 
     //Hangman screen signals
     connect(Hangman, SIGNAL(QuitClicked()), this, SLOT(hangmanQuit()));
-
-    //Blitzmode signals
-    connect(blitzmode, SIGNAL(QuitClicked()), this, SLOT(hangmanQuit()));
 
     ui->stackedWidget->setCurrentIndex(0);
 }
@@ -146,12 +141,12 @@ void TitleScreen::on_pbtAbout_clicked()
 
 void TitleScreen::on_pbtContact_clicked()
 {
-    QDesktopServices::openUrl(QUrl("mailto:codyrockwell1@email.grcc.edu;dustinbrown4@email.grcc.edu;benjaminvanderhart@email.grcc.edu?subject=Thanks for making this game!&body="));
+    QDesktopServices::openUrl(QUrl("mailto:codyaaronrockwell@gmail.com"));
 }
 
 void TitleScreen::getHighScoreList()
 {
-    QFile highscore(path.filePath("HighScores"));
+    QFile highscore(path.filePath("HighScoresCopy.txt"));
     if (!highscore.open(QIODevice::ReadOnly | QIODevice::Text))
     {
         QMessageBox::critical(this, "Impending Doom!", "Unable to open High Score File: " + highscore.errorString());

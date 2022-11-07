@@ -32,8 +32,70 @@ hangmanWidget::~hangmanWidget()
 
 void hangmanWidget::on_pbtGuess_clicked()
 {
-    if (intNumberOfGuesses >= 1)
-    {
+//    if (intNumberOfGuesses >= 1)
+//    {
+//        if (ui->lneGuess->isModified())
+//        {
+//            strGuess = ui->lneGuess->text();
+
+//            for (unsigned short int i = 0; i < strWordToGuess.length(); i++)
+//            {
+//                if (strGuess == strWordToGuess[i])
+//                {
+//                    bCorrectLetter = true;
+//                    strHiddenWord.replace(i, 1, strGuess);
+//                    ui->lblHiddenWord->setText(strHiddenWord);
+//                    //break; //may be used if you want only the first instance of the guessed letter in a word to be displayed instead of all of them
+//                }   //TODO: Add a setting to toggle above functionality
+//            }
+//            if (strHiddenWord == strWordToGuess)
+//            {
+//                QMessageBox::information(this, "Congratulations!", "Your word to guess was \"" + strWordToGuess + "\".");
+
+//                addWin();
+//            }
+//            else
+//            {
+//                if (bCorrectLetter)
+//                {
+//                    bCorrectLetter = false;
+//                    QMessageBox::information(this, "Correct", "Good job buddy!");
+//                }
+//                else
+//                {
+//                    intNumberOfGuesses--;
+//                    strNumberOfGuesses = QString::number(intNumberOfGuesses);
+//                    ui->lblNumberOfGuesses->setText(strNumberOfGuesses);
+
+//                    QMessageBox::information(this, "Incorrect", "Try again!");
+//                }
+//            }
+//        }
+//        else
+//        {
+//            QMessageBox::warning(this, "Warning", "You have not entered a guess");
+//        }
+//    }
+//    else
+//    {
+//        intNumberOfGuesses = 0;
+
+//        strNumberOfGuesses = QString::number(intNumberOfGuesses);
+
+//        ui->lblNumberOfGuesses->setText(strNumberOfGuesses);
+
+//        QMessageBox::information(this, "Mission Failed!", "Your word to guess was \"" + strWordToGuess + "\". You'll get him next time.");
+//    }
+
+    if (intNumberOfGuesses == 0) {
+
+        strNumberOfGuesses = QString::number(intNumberOfGuesses);
+
+        ui->lblNumberOfGuesses->setText(strNumberOfGuesses);
+
+        QMessageBox::information(this, "Mission Failed!", "Your word to guess was \"" + strWordToGuess + "\". You'll get him next time.");
+    }
+    else {
         if (ui->lneGuess->isModified())
         {
             strGuess = ui->lneGuess->text();
@@ -44,10 +106,12 @@ void hangmanWidget::on_pbtGuess_clicked()
                 {
                     bCorrectLetter = true;
                     strHiddenWord.replace(i, 1, strGuess);
-                    ui->lblHiddenWord->setText(strHiddenWord);
                     //break; //may be used if you want only the first instance of the guessed letter in a word to be displayed instead of all of them
-                }
+                }   //TODO: Add a setting to toggle above functionality
             }
+
+            ui->lblHiddenWord->setText(strHiddenWord);
+
             if (strHiddenWord == strWordToGuess)
             {
                 QMessageBox::information(this, "Congratulations!", "Your word to guess was \"" + strWordToGuess + "\".");
@@ -73,18 +137,8 @@ void hangmanWidget::on_pbtGuess_clicked()
         }
         else
         {
-            QMessageBox::warning(this, "Warning", "You have not entered a guess");
+            QMessageBox::warning(this, "Warning", "You have not entered a guess.");
         }
-    }
-    else
-    {
-        intNumberOfGuesses = 0;
-
-        strNumberOfGuesses = QString::number(intNumberOfGuesses);
-
-        ui->lblNumberOfGuesses->setText(strNumberOfGuesses);
-
-        QMessageBox::information(this, "Mission Failed!", "Your word to guess was \"" + strWordToGuess + "\". You'll get him next time.");
     }
 }
 

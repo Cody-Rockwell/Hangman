@@ -165,19 +165,6 @@
        <bool>true</bool>
       </property>
      </widget>
-     <widget class="QPushButton" name="pbtBlitz">
-      <property name="geometry">
-       <rect>
-        <x>359</x>
-        <y>120</y>
-        <width>75</width>
-        <height>23</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Blitz Mode</string>
-      </property>
-     </widget>
     </widget>
    </widget>
   </widget>
