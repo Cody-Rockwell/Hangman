@@ -1,6 +1,6 @@
-#include "wordlibrarywidget.h"
+#include "headers/wordlibrarywidget.h"
 #include "ui_wordlibrarywidget.h"
-#include "optionswidget.h"
+#include "headers/optionswidget.h"
 
 #include <QFile>
 #include <QFileDialog>

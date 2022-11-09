@@ -1,6 +1,6 @@
-#include "optionswidget.h"
+#include "headers/optionswidget.h"
 #include "ui_optionswidget.h"
-#include "titlescreen.h"
+#include "headers/titlescreen.h"
 
 
 OptionsWidget::OptionsWidget(QWidget *parent) :

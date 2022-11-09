@@ -1,4 +1,4 @@
-#include "titlescreen.h"
+#include "headers/titlescreen.h"
 
 #include <QApplication>
 

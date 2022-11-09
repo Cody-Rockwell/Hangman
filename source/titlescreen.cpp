@@ -1,4 +1,4 @@
-#include "titlescreen.h"
+#include "headers/titlescreen.h"
 #include "ui_titlescreen.h"
 
 #include <QString>
@@ -146,7 +146,7 @@ void TitleScreen::on_pbtContact_clicked()
 
 void TitleScreen::getHighScoreList()
 {
-    QFile highscore(path.filePath("HighScoresCopy.txt"));
+    QFile highscore(path.filePath("HighScores"));
     if (!highscore.open(QIODevice::ReadOnly | QIODevice::Text))
     {
         QMessageBox::critical(this, "Impending Doom!", "Unable to open High Score File: " + highscore.errorString());

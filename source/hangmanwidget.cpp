@@ -1,4 +1,4 @@
-#include "hangmanwidget.h"
+#include "headers/hangmanwidget.h"
 #include "ui_hangmanwidget.h"
 
 hangmanWidget::hangmanWidget(QWidget *parent) :
@@ -8,7 +8,7 @@ hangmanWidget::hangmanWidget(QWidget *parent) :
     ui->setupUi(this);
 
     path.setCurrent(QDir::homePath());
-    path.cd(".QTProjects\\School\\CIS-224 C++\\Assignment_11\\res");
+    path.cd(".QTProjects/Portpholio/Hangman/res");
 
     getWordLists();
     getHighScoreList();
@@ -292,7 +292,7 @@ void hangmanWidget::getWordLists()
 
 void hangmanWidget::getHighScoreList()
 {
-    QFile highscore(path.filePath("HighscoreList"));
+    QFile highscore(path.filePath("HighScores"));
     if (!highscore.open(QIODevice::ReadOnly | QIODevice::Text))
     {
         QMessageBox::critical(this, "Impending Doom!", "Unable to open High Score File: " + highscore.errorString());
